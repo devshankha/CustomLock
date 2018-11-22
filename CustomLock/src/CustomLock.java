@@ -29,7 +29,11 @@ class ReentrantLock implements CustomLock {
 
 	@Override
 	public void unLock() {
-		// TODO Auto-generated method stub
+		if (lockCount == 0)
+			throw new IllegalMonitorStateException();
+		lockCount--;
+		if (lockCount == 0)
+			notify();
 		
 	}
 
