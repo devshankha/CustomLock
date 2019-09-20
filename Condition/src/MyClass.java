@@ -20,7 +20,7 @@ public class MyClass {
 			}
 			data = n;
 			isSet = true;
-			valueNotSet.notify();
+			valueNotSet.signal();
 			
 		} finally {
 			lock.unlock();
@@ -40,7 +40,7 @@ public class MyClass {
 				}
 			}
 			isSet = false;
-			valueSet.notify();
+			valueSet.signal();
 			return data;
 			
 		} finally {
